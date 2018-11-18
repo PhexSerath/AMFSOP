@@ -120,8 +120,22 @@ Gilt da den Speicherverbrauch selbst eine untere Schranke für den Speicherverbr
 
 $$size(v) = \sum_{i=1}^{l} size(v_i) + m(v)\cdot count(v)$$
 
-Alle Kinder von $v$ müssen gespeichert werden und so werden wir mindestens $\sum_{i=1}^{l} size(v_i)$ Platz brauchen. Wir müssen auch der Knoten $v$ selbst speicher und das so oft wie es Kopien davon gibt, somit brauchen wir $\sum_{i=1}^{l} size(v_i) + m(v)\cdot count(v)$.
+Alle Kinder von $v$ müssen gespeichert werden und so werden wir mindestens $\sum_{i=1}^{l} size(v_i)$ Platz brauchen. Wir müssen auch der Knoten $v$ selbst speichern und das so oft wie es Kopien davon gibt, somit brauchen wir $\sum_{i=1}^{l} size(v_i) + m(v)\cdot count(v)$.\\
 
+\begin{large}
+	\textbf{Aufgabe 4}\\
+\end{large}
 
+a) Für unser Preprocessing-Schritt wir berechnend die Wertdichte alle Items (Wert durch Gewicht). Dies läuft in $\mathcal{O}(n)$. Dann wir sortieren alle Item nach Wertdichte mit z.B. Merge-Sort in $\mathcal{O}(n \cdot log(n))$. Letztlich, wir gehen alle Items durch in der sortierte Reihenfolge und speichern der Gewicht der bis alle vorherigen Items plus den aktuellen betrachten Item. Somit wird $w(a_1)$ im Item $a_1$, $w(a_1) + w(a_2)$ in $a_2$ und $\sum_{i=1}^{k}w(a_i)$ in Item $a_k$ gespeichert. Da dafür wir einfach durch die Items linear durchgehen brauchen wir nur $\mathcal{O}(n)$. Weiterhin wir tun das gleiche für den Wert der Items, sodass $\sum_{i=1}^{k}v(a_i)$ in Item $a_k$ gespeichert.
+
+Somit braucht der Preprocessing-Schritt insgesamt $\mathcal{O}(n \cdot log(n))$.\\
+
+Jetzt um ein upperBound zu berechnen wir können einfach eine binäre Suche einsetzen.
+
+Wir geben ein unser maximal Gewicht und suchen binär nach diesem Wert beim Präfixsummen der Gewichten. Falls wir den genauen Gewicht finden geben wir einfach die Präfixsumme der Werte an der Stellen. Sonst wir sollen einfach der nächst kleineren Präsfixsummengewicht(dies geht immer noch in $\mathcal{O}(log(n))$) und dann wir gucken den nächsten Item($a_{k+1}$) um folgende Gleichung zu lösen:
+
+$$c_{up} = \frac{(c_{max} - \sum_{i=1}^{k}w(a_i))}{w(a_{k+1})} \cdot v_{k+1} + \sum_{i=1}^{k}v(a_i)$$
+
+Da $\sum_{i=1}^{k}w(a_i)$ und $\sum_{i=1}^{k}v(a_i)$ im $a_k$ gespeichert sind geht dies im $\mathcal{O}(1)$. $c_{up}$ ist der upperBound und $c_{max}$ ist der maximalen Gewicht. Somit wird er upperBound insgesamt in $\mathcal{O}(log(n))$ berechnet.
 
 \end{document}
