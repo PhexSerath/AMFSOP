@@ -15,7 +15,8 @@ struct Element
 int n = 500;
 Element** eleArray = new Element*[n];
 int count = 0;
-bool *tabelle;
+bool **tabelle;
+int maxWert[1000];
 
 void biggerArray() {
 	Element** tempArray;
@@ -48,7 +49,30 @@ void einlesen() {
 	}
 }
 
+void solution(){
+	for (int i = 0; i < count; i++)
+	{
+		for (int j = 1000; j >= eleArray[i]->gewicht;	j--)
+		{
+			if ((maxWert[j - eleArray[i]->gewicht] + eleArray[i]->wert) > maxWert[j]) {
+				maxWert[j] = maxWert[j - eleArray[i]->gewicht] + eleArray[i]->wert;
+				tabelle[i][j] = true;
+			}
+		}
+	}
+}
+
 int main(int argc, const char *argv[]) {
 	einlesen();
-	tabelle = new bool[count];
+	tabelle = new bool*[count];
+	for (int i = 0; i < count; i++)
+	{
+		tabelle[i] = new bool[1000];
+		maxWert[i] = 0;
+		for (int j = 0; j < 1000; j++)
+		{
+			tabelle[i][j] = false;
+		}
+	}
+	solution();
 }
