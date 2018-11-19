@@ -1,3 +1,6 @@
+//Steven Müller (581583)
+//Lucas Petersen (581277)
+
 #include <cstdlib>
 #include <fstream>
 #include <vector>
