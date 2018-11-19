@@ -37,7 +37,7 @@ void einlesen() {
 	for (std::string line; std::getline(std::cin, line);) {
 		int k = line.find(delimiter);
 		gewicht = line.substr(0, k);
-		wert = line.substr(k + 1, line.end);
+		wert = line.substr(k + 1);
 		Element* neu = new Element;
 		neu->gewicht = atoi(gewicht.c_str());
 		neu->wert = atoi(wert.c_str());
