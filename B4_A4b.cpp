@@ -16,7 +16,7 @@ int n = 500;
 Element** eleArray = new Element*[n];
 int count = 0;
 bool **tabelle;
-int maxWert[1000];
+int maxWert[1001];
 
 void biggerArray() {
 	Element** tempArray;
@@ -67,12 +67,13 @@ int main(int argc, const char *argv[]) {
 	tabelle = new bool*[count];
 	for (int i = 0; i < count; i++)
 	{
-		tabelle[i] = new bool[1000];
+		tabelle[i] = new bool[1001];
 		maxWert[i] = 0;
-		for (int j = 0; j < 1000; j++)
+		for (int j = 0; j <= 1000; j++)
 		{
 			tabelle[i][j] = false;
 		}
 	}
 	solution();
+	std::cout << maxWert[1000] << std::endl;
 }
