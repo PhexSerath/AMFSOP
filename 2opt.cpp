@@ -11,6 +11,7 @@
 
 
 int main(int argc, const char *argv[]) {
+        Aux::Log::setLogLevel("ERROR");
 	NetworKit::EdgeListReader reader{' ', 0};
 	auto g = reader.read(argv[1]);    
 	int size = g.numberOfNodes();
