@@ -1,0 +1,57 @@
+\documentclass[a4paper,12pt]{scrartcl}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{tabto}
+\usepackage{ulem}
+\usepackage{cancel}
+\usepackage{makecell}
+\usepackage{color}
+\pagestyle{empty}
+\usepackage{pdflscape}
+\usepackage{lscape}
+\newcommand{\n}{\newline}
+\newcommand{\bs}{\textbackslash}
+\begin{document}
+\begin{flushleft}
+Steven Müller 581583 \\
+Lucas Petersen 581277 
+\end{flushleft}
+\begin{large}
+	\textbf{Aufgabe 12}\\
+\end{large}
+a)\\
+$V(G)=\lbrace 1,2,3,4,5\rbrace$\\
+$E(G)=\lbrace(1,2),(1,3),(1,4),(2,5),(3,5),(4,5)\rbrace$\\
+$C = \lbrace a,b,c,d\rbrace$\\
+$Lsg=\lbrace X_{1a},X_{2b},X_{3b},X_{4b},X_{5a}\rbrace$\\
+$U_{a}, U_{b}, \neg U_{c}, \neg U_{d}$\\\\
+
+b) Die Variablen $X_{ic}$ das i ist die ID des Knotens und c ist die ID der Farbe.\\
+Umgangsprachlich:\\
+"Der Knoten i hat die Färbung c."\\\\
+
+$U_{c}$ bedeutet wird die Farbe mit der ID c genutzt oder nicht.\\\\
+
+Die erste harte Klausel bedeutet:\\
+Jeder Knoten muss eine Färbung haben\\\\
+
+Die zweite harte Klausel bedeutet:\\
+Jeder Knoten kann nur eine Färbung haben\\\\
+
+Die dritte harte Klausel bedeutet:\\
+Jeder Nachbar des Knotens darf nicht die selbe Färbung haben.\\\\
+
+Die vierte harte Klausel bedeutet:\\
+Das kein Knoten diese Farbe hat, oder das die Farbe verwendet wird.\\\\
+
+Die fünfte harte Klausel bedeutet:\\
+Das diese Farbe nicht genutzt wird.\\\\
+
+
+All das sind Eigenschaften die für die min.\\ Graphenfärbung erforderlich sind und hier maximieren wir nach den nicht genutzten Farben.
+
+\end{document}
